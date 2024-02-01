@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="hang.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+    -->
+    
+
+    <script>
+       document.addEventListener("DOMContentLoaded", function () {
+  // let bar = document.querySelector('#bars');
+  // let nav = document.querySelector('nav');
+
+  // bar.onclick = () => {
+  //   bar.classList.toggle('fa-bars');
+  //   bar.classList.toggle('fa fa-times');
+  //   nav.classList.toggle('active');
+  // }
+  
+  // window.onscroll = () => {  
+  //   bar.classList.toggle('fa-bars');
+  //   bar.classList.toggle('fa fa-times');
+  //   nav.classList.toggle('active');
+    
+  // }
+
+  let searchIcon = document.querySelector('#search');
+  let searchForm = document.querySelector('#searchform');
+
+  searchIcon.onclick = () => {
+    searchForm.classList.toggle('active');
+  }
+
+  let closeIcon = document.querySelector('#close');
+
+  closeIcon.onclick = () => {
+    searchForm.classList.remove('active');
+  }
+});
+
+function clicker(){
+  alert('you are registered successfully');
+}
+// function addcart(){
+//   alert('Your order has been added to the cart successfully');
+// }
+let shoppingCart=[];
+function addToCart(itemName, itemPrice) {
+  shoppingCart.push({ name: itemName, price: itemPrice });
+  alert(`${itemName} has been added to the cart successfully`);
+}
+function displayCart() {
+  let cartSection = document.getElementById('cart-section');
+  cartSection.innerHTML = ''; 
+
+  if (shoppingCart.length === 0) {
+    cartSection.innerHTML = '<p>Your cart is empty.</p>';
+  } else {
+    let total = 0;
+    for (let item of shoppingCart) {
+      cartSection.innerHTML += `<p>${item.name} - Rs ${item.price}</p>`;
+      total += item.price;
+    }
+    cartSection.innerHTML += `<p>Total: Rs ${total}</p>`;
+    cartSection.innerHTML += `<button id="paymentButton" style="display: block;">Proceed to Payment</button>`;
+    paymentButton.addEventListener('click', handlePayment);
+    function handlePayment() {
+    alert('Please select the upi or credit card option ');
+}
+
+function completeTransaction() {
+    let selectedPaymentMethod = document.getElementById('paymentMethod').value;
+
+    switch (selectedPaymentMethod) {
+        case 'debitCard':
+            alert('You have selected Debit Card payment. Please complete the transaction.');
+            break;
+        case 'creditCard':
+            alert('You have selected Credit Card payment. Please complete the transaction.');
+            break;
+        case 'upi':
+            alert('You have selected UPI payment. Please complete the transaction.');
+            break;
+        default:
+            alert('Invalid payment method selected.');
+    }
+}
+
+
+
+
+  }
+}
+  
+    </script>
+  
+</head>
+<body>
+    <header>
+        
+        
+            <div class="logo">
+                <h1>H A N G O U T S<hr></h1>
+               
+            </div>
+            <div class="hu">
+            <nav>
+                <span id="hom">
+                <a class="active"><b>Home</b></a>
+                </span>
+                <span class="order">
+                    <a href="#Dishes"><b>Menu </b> </a>
+                    </span>
+                <span class="about">
+                <a href="#about"><b>About us</b> </a>
+                </span>
+                
+                <span class="review">
+                    <a href="#review"><b>Reviews</b> </a>
+                    </span>
+                    <span class="login">
+                      <a href="signup.html"><b>Sign up</b> </a>
+                      </span>
+
+                 
+            </nav>
+            <div class="icons">
+                <i class=" fa fa-bars" id="bars"></i>
+                <i class="fa fa-search" id="search"></i>
+                <section id="cart-section">
+                <!-- <a href="#" class=" fa fa-shopping-cart" onlick="displayCart();"></a> -->
+                
+                  
+               
+                <button class="btn4" onclick="displayCart();"><i class="fa fa-shopping-cart" ></i></button>
+                 
+                
+            </div>
+            </div>
+
+        </header>
+<form action="" id="searchform">
+    <input type="search" placeholder="search here" id="search-box">
+    <label for="search-box" class="fa fa-search"></label>
+    <i class="fa fa-times" id="close"></i>
+</form>
+<section class="home" id="homee">
+    <div class="home-slider">
+      <div class="wrapper">
+
+        <div class="wrapper">
+          <div class="slide">
+            <div class="content">
+              <span>Our Special One....</span>
+              <h3>Masala Dosa</h3>
+              <p>Masala dosa, the queen of all dosas, is a culinary journey that marries crispy, paper-thin dosa
+                 with a sumptuous, fragrant potato masala,
+                 creating a dish that's adored across the globe for its simplicity and gastronomic delight..</p>
+                 <button  class="btn" onclick="addToCart('Masala Dosa',60);">Order Now</button>
+            </div>
+            <div class="image">
+              <img src="NicePng_indian-mix-sweets-png_2522193.png"  alt="dosa">
+            </div>
+          </div>
+          <div class="slide">
+            <div class="content">
+              <span>Mysore special....</span>
+              <h3>Bondaa</h3>
+              <p>Mysore bonda is a delicious and popular snack that has found its way into the
+                 hearts and taste buds of people across
+                 South India and beyond. It's a must-try for anyone interested in exploring the 
+                 diverse and flavorful world of South Indian cuisine..</p>
+                 <button  class="btn" class="fa fa-shopping-cart" onclick="addToCart('Bonda',50);">Order Now</button>
+            </div>
+            <div class="image">
+              <img src="bondaaa.png" alt="dosa">
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<section class="Dishes" id="Dishes">
+<h3 class="sub-heading">Food Items</h3>
+
+<div class="box-container">
+
+<div class="box">
+  <a href="#" class="fa fa-heart"></a>
+  
+  <img src="NicePng_indian-mix-sweets-png_2522193.png" width=22%>
+  <h3>Masala Dosa</h3>
+  <div class="stars">
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star-half-alt"></i>
+  </div>
+  <span>Rs 60</span>
+  <button  class="btn" onclick="addToCart('Masala Dosa',60);">Order Now</button>
+</div>
+
+<div class="box">
+  <a href="#" class="fa fa-heart"></a>
+ 
+  <img src="bondaaa.png" width=28%>
+  <h3>Mysore bonda</h3>
+  <div class="stars">
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    
+  </div>
+  <span>Rs 50</span>
+  <button  class="btn" onclick="addToCart('Bonda',55);">Order Now</button>
+</div>
+<div class="box">
+  <a href="#" class="fa fa-heart"></a>
+  
+  <img src="upma.jpeg" width=28%>
+  <h3>Upma </h3>
+  <div class="stars">
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+     <i class="fa fa-star"></i>
+    
+  </div>
+  <span>Rs 65</span>
+  <button  class="btn" onclick="addToCart('Upma',65);">Order Now</button>
+</div>
+
+<div class="box">
+  <a href="#" class="fa fa-heart"></a>
+  
+  <img src="idli sambhar.jpeg" width=28%>
+  <h3>Idli Sambhar</h3>
+  <div class="stars">
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star-half-alt"></i>
+    
+  </div>
+  <span>Rs 55</span>
+  <button  class="btn" onclick="addToCart('Idli Sambhar',55);">Order Now</button>
+</div>
+<div class="box">
+  <a href="#" class="fa fa-heart"></a>
+  
+  <img src="uttapam.jpg" width=28%>
+  <h3>uttapam</h3>
+  <div class="stars">
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    
+  </div>
+  <span>Rs 60</span>
+  <button  class="btn" onclick="addToCart('uttapam',60);">Order Now</button>
+</div>
+<div class="box">
+  <a href="#" class="fa fa-heart"></a>
+  
+  <img src="appam.jpeg" width=28%>
+  <h3>Appam</h3>
+  <div class="stars">
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    
+  </div>
+  <span>Rs 70</span>
+  <button  class="btn" onclick="addToCart('appam',70);">Order Now</button>
+</div>
+<div class="box">
+  <a href="#" class="fa fa-heart"></a>
+  
+  <img src="punugulu-recipe.jpg.webp" width=28%>
+  <h3>Punugulu</h3>
+  <div class="stars">
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star-half-alt"></i>
+    
+  </div>
+  <span>Rs 50</span>
+  <button  class="btn" onclick="addToCart('punugulu',50);">Order Now</button>
+</div>
+<div class="box">
+  <a href="#" class="fa fa-heart"></a>
+  
+  <img src="onion-dosa-recipe.webp" width=28% height="35%">
+  <h3>Onion Masala Dosa</h3>
+  <div class="stars">
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    
+    
+  </div>
+  <span>Rs 65</span>
+  <button  class="btn" onclick="addToCart('onion masala dosa',65);">Order Now</button>
+</div>
+</section>
+<section class="about" id="about">
+  <h3 class="sub-heading">About us</h3>
+  <div class="row">
+    <div class="image">
+
+    </div>
+    <div class="content">
+      <h4>best food in the LPU</h4>
+      <p>At Hangouts Restaurant, we offer a delectable array of Southern dishes that will transport your taste buds
+         straight to the heart of the American South. Our menu is a culinary 
+        journey through the rich and diverse flavors of the region, celebrating the heritage and traditions of Southern cooking..</p>
+      <p>Our commitment to quality begins with sourcing the freshest and finest ingredients. We work closely with local farmers and suppliers 
+        to ensure that our produce, meats, and seafood meet the highest standards. This dedication to freshness not only enhances the flavor 
+        of our dishes but also supports the community by promoting sustainability.</p>
+        <p>Our kitchen is staffed with skilled chefs who have a passion for Southern cuisine.
+           They pay meticulous attention to detail, from marinating, seasoning, and cooking to
+            perfection, ensuring that each dish is a culinary masterpiece. Our team is dedicated
+             to maintaining the authentic flavors and techniques
+           of Southern cooking, delivering a true taste of the region to our customers.</p>
+      <div class="icons-container">
+        <i class="fa fa-shipping-fast"></i>
+        <span>free delievery</span>
+      </div>
+      <div class="icons-container">
+        <i class="fa fa-rupee-sign"></i>
+        <span>Easy payment</span>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="review" id="review">
+  <h3 class="sub-heading">Customer's Review</h3>
+  <div class="review-slider">
+    <div class="wrapper">
+      <div class="slide">
+       <i class="fa fa-quote-right"></i>
+        <div class="user">
+          <img src="anmay.png" alt="">
+          <div class="user-info">
+            <h3>Anmay Srivastava</h3>
+            <div class="stars">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-half-alt"></i>
+            </div>
+          </div>
+        </div>
+        <p>Onion Masala is so delicious. I will highly recommend everyone to order from this.I am sure 
+          that you will not gonna regret.
+        </p>
+      </div>
+      <div class="swipper-slide slide">
+        <i class="fa fa-quote-right"></i>
+         <div class="user">
+           <img src="gauhar.jpeg" alt="">
+           <div class="user-info">
+             <h3>Gauhar Adeeb</h3>
+             <div class="stars">
+               <i class="fa fa-star"></i>
+               <i class="fa fa-star"></i>
+               <i class="fa fa-star"></i>
+               <i class="fa fa-star"></i>
+              
+             </div>
+           </div>
+         </div>
+         <p>I like upma the most. Overall i am giving the 4 star rating. Service is also too good.</p>
+       </div>
+       <div class="swipper-slide slide">
+        <i class="fa fa-quote-right"></i>
+         <div class="user">
+           <img src="Harry.jpeg" alt="">
+           <div class="user-info">
+             <h3> Harry Edward</h3>
+             <div class="stars">
+               <i class="fa fa-star"></i>
+               <i class="fa fa-star"></i>
+               <i class="fa fa-star"></i>
+               <i class="fa fa-star"></i>
+               <i class="fa fa-star"></i>
+             </div>
+           </div>
+         </div>
+         <p>One of the best masala dosas in LPU!! Very good amount of masala ratio to dosa and beautiful
+           chutney to compliment. Would highly recommend!.</p>
+       </div>
+    </div>
+  </div>
+</section>
+
+<section class="footer">
+  <div class="box-container">
+    <div class="box">
+      <h3>locations</h3>
+      <a href="#">near,Block-56,LPU</a>
+      <a href="#">BH-1,LPU</a>
+        <a href="#">Block-34,backside</a>
+     
+      <a href="#">Staff Residents,LPU</a>
+    </div>
+    <div class="box">
+    <h3>Quick Links</h3>
+      
+      <a href="#home">home</a>
+      <a href="#Dishes">dishes</a>
+      <a href="#Dishes">menu</a>
+      <a href="#review">review</a>
+      <a href="#home">order</a>
+    </div>
+    <div class="box">
+    <h3>Contacts info</h3>
+      <a href="#">+91 8695879799</a>
+      <a href="#">+91 9670996055</a>
+      <a href="#">xyz@gmail.com</a>
+      <a href="#">Jalandhar,India -140051</a>
+    </div>
+    <div class="box">
+    <h3>follow us</h3>
+      <a href="#">facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">Twitter</a>
+
+  </div>
+  </div>
+</section>
+
+
+
+            
+</body>
+</html>
